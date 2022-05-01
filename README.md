@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="imgs/logo.png" alt="ttk logo" width="150">
+  <img src="logo.png" alt="ttk logo" width="150">
 </div>
 
 >【 Moha-Molo 】
