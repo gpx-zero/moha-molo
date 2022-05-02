@@ -43,10 +43,10 @@
 
 	</div>
 
-	<script type="text/javascript"></script>
 	<script type="text/javascript">
 
-		setTimeout(()=>{
+		window.onload = ()=>{
+
 			// Get Master.css
 			fetch('https://raw.githubusercontent.com/gpx-zero/moha-molo/main/static/master.css')
 			.then(response=>response.text())
@@ -58,11 +58,13 @@
 			fetch('https://raw.githubusercontent.com/gpx-zero/moha-molo/main/static/master.js')
 			.then(response=>response.text())
 			.then(data=>{
-				document.getElementsByTagName('script')[0].innerHTML = String(data);
+				document.getElementsByTagName('script')[1].innerHTML = String(data);
 			});
-		}, 2000);
+			
+		}
 
 	</script>
+	<script type="text/javascript"></script>
 
 </body>
 </html>
