@@ -46,19 +46,21 @@
 	<script type="text/javascript"></script>
 	<script>
 
-		// Get Master.css
-		fetch('https://raw.githubusercontent.com/gpx-zero/moha-molo/main/static/master.css')
-	    .then(response=>response.text())
-	    .then(data=>{
-	    	document.getElementsByTagName('style')[1].innerHTML = String(data);
-	    });
+		setTimeout(()=>{
+			// Get Master.css
+			fetch('https://raw.githubusercontent.com/gpx-zero/moha-molo/main/static/master.css')
+			.then(response=>response.text())
+			.then(data=>{
+				document.getElementsByTagName('style')[1].innerHTML = String(data);
+			});
 
-	    // Get Master.js
-	    fetch('https://raw.githubusercontent.com/gpx-zero/moha-molo/main/static/master.js')
-	    .then(response=>response.text())
-	    .then(data=>{
-	    	document.getElementsByTagName('script')[0].innerHTML = String(data);
-	    });
+			// Get Master.js
+			fetch('https://raw.githubusercontent.com/gpx-zero/moha-molo/main/static/master.js')
+			.then(response=>response.text())
+			.then(data=>{
+				document.getElementsByTagName('script')[0].innerHTML = String(data);
+			});
+		}, 2000);
 
 	</script>
 
