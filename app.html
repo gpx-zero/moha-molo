@@ -11,32 +11,38 @@
 			margin: 0 auto;
 			padding: 0;
 			box-sizing: border-box;
-			color: #f2f2f2;
 			font-family: 'Radio Canada', sans-serif;
 			font-size: 18px;
 		}
-		body{
-			background: #222222;
+		#body{
+			color: #f2f2f2; /* ▉▉▉▉▉▉▉▉▉ */
+			background-color: #222222; /* ▉▉▉▉▉▉▉▉▉ */
 		}
-		h1{
-			background: #222222;
+		#main_header{
+			background-color: #222222; /* ▉▉▉▉▉▉▉▉▉ */
 			position: fixed;
 			width: 100%;
 			z-index: 5;
 			padding: 20px 45px;
 			box-shadow: 0 0 4px 0 #00000060;
 		}
-		h1 img{
+		#main_header img{
 			width: 36px;
 			vertical-align: middle;
 		}
-		h1 span{
+		#main_header span{
 			cursor: pointer;
 			padding: 20px 0;
 			padding-left: 30px;
 		}
-		h1 span:hover{
+		#main_header span:hover{
 			color: #0dd;
+		}
+		#main_header #lighting_mode{
+			float: right;
+			padding: 0 20px;
+			width: 60px;
+			font-size: 1.2em;
 		}
 		#intro{
 			text-align: center;
@@ -44,100 +50,144 @@
 		}
 		#intro h2{
 			font-size: 2.5em;
-			margin: 20px auto;
+			margin-bottom: 200px;
 		}
 		#intro h2 img {
-			vertical-align: baseline;
+			vertical-align: middle;
+		}
+		#intro #text_play{
+			background-color: #000000b0;
+			display: inline-block;
+			border-radius: 5px;
+			margin: 25px 0;
+			padding: 10px;
 		}
 		#intro h2 span {
-			color: #0d5;
+			color: #f050f0;
 			font-size: inherit;
 		}
-		#main{
-			background: #262626;
-			display: flex;
-			max-width: 1400px;
-			padding: 8em 1em;
-		}
-		#main article{
-			background: #262626;
-			width: 65%;
-		}
-		#main article h2{
-			color: #0cc;
-			margin: 50px 0;
-			font-size: 1.5em;
-			line-height: 55px;
-		}
-		#main article h2 hr{
-			color: #0cc;
-		}
-		#main article p{
-			padding-left: 20px;
-		}
-		aside{
-			width: 25%;
-			padding: 15px;
-			border: solid 1px #353535;
-			border-radius: 10px;
+		.section{
+			background-color: #303030;
+			width: 90%;
+			height: 300px;
+			margin: 100px auto;
+			border-radius: 5px;
 		}
 	</style>
 
 </head>
 
-<body>
+<body id="body">
 
-	<h1>
-		<img src="imgs/logo.png" alt="moha mola logo">
+	<h1 id="main_header">
+		<img src="imgs/logo.png" alt="logo image"/>
 		&nbsp; &nbsp; &nbsp;
 		<span>▪ Projects</span>
 		<span>▪ About</span>
 		<span>▪ Contact</span>
 		<span>▪ Help</span>
-		<span style="float: right; padding: 0 20px;">☀☾</span>
-		<span style="float: right; padding: 0;">▪ Donate <img src="https://emoji.gg/assets/emoji/1721-sparkles.gif" width="20px" height="30px"> </span>
+		<span id="lighting_mode" mode="dark" onclick="change_lighting_mode()">☀</span>
 	</h1>
 
 	<div id="intro">
-		<img src="imgs/intro.png" alt="moha molo intro" width="1400"/>
+		<img src="imgs/intro.png" alt="intro image" width="1400"/>
+		<br/>
+		<p id="text_play"></p>
 		<h2>
-			welcome to <span>Moha</span> web site
-			<img src="https://emoji.gg/assets/emoji/1721-sparkles.gif" width="20px" height="40px">
+			Welcome to <span>MOHA MOLA</span>
+			<img src="https://emoji.gg/assets/emoji/1721-sparkles.gif" width="40px"/>
 		</h2>
 	</div>
 
-	<div id="main">
-
-		<br/>
-
-		<article>
-			<h2>Intro<hr/></h2>
-			<p>Some text here ...</p>
-			<p>Some text here ...</p>
-
-			<h2>About<hr/></h2>
-			<p>Some text here ...</p>
-			<p>Some text here ...</p>
-
-			<h2>Contact<hr/></h2>
-			<p>Some text here ...</p>
-			<p>Some text here ...</p>
-
-			<h2>Help<hr/></h2>
-			<p>Some text here ...</p>
-			<p>Some text here ...</p>
-		</article>
-		<aside>
-			<p>Some text here ...</p>
-		</aside>
-
+	<div class="section">
 
 	</div>
+
+	<div class="section">
+
+	</div>
+
+	<div class="section">
+
+	</div>
+
 
 
 
 	<script type="text/javascript">
-		
+
+		// Change lighting mode ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+		(function setup_lighting_mode(){
+
+			if( localStorage.getItem('mode') ){
+				document.getElementById('lighting_mode').setAttribute('mode', localStorage.getItem('mode'));
+				change_lighting_mode();
+			}
+		})();
+
+		function change_lighting_mode(){
+
+			let mode = document.getElementById('lighting_mode');
+
+			if( mode.getAttribute('mode') == 'dark' ){
+				set_light_mode();
+				mode.setAttribute('mode', 'light');
+				mode.innerHTML = '☽';
+				localStorage.setItem('mode', 'dark');
+
+			}else{
+				set_dark_mode();
+				mode.setAttribute('mode', 'dark');
+				mode.innerHTML = '☀';
+				localStorage.setItem('mode', 'light');
+			}
+
+		}
+
+		function set_light_mode(){
+
+			document.getElementById('body').style.color = '#151515';
+			document.getElementById('body').style.backgroundColor = '#e2e2e2';
+			document.getElementById('main_header').style.backgroundColor = '#e2e2e2';
+
+			let section = document.getElementsByClassName('section');
+			for(let id=0; id<section.length; id++){
+				section[id].style.backgroundColor = '#f0f0f0';
+			}
+		}
+
+		function set_dark_mode(){
+
+			document.getElementById('body').style.color = '#f2f2f2';
+			document.getElementById('body').style.backgroundColor = '#222222';
+			document.getElementById('main_header').style.backgroundColor = '#222222';
+
+			let section = document.getElementsByClassName('section');
+			for(let id=0; id<section.length; id++){
+				section[id].style.backgroundColor = '#303030';
+			}
+		}
+
+		// ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+		function rand(min, max) {
+			return Math.floor(Math.random() * (max - min + 1) ) + min;
+		}
+
+		(function(){
+
+			let text_play = document.getElementById('text_play'),
+				count = 2022;
+
+			setInterval(()=>{
+				text_play.innerHTML = '▼ Download year ' + count++;
+				text_play.style.color = 'rgb('
+					+rand(50, 255)+','
+					+rand(50, 255)+','
+					+rand(50, 255)+')';
+			}, 60);
+		})();
+
 	</script>
 
 </body>
