@@ -6,74 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<title>Moha-molo</title>
 	<style>@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300&#38;display=swap');</style>
-	<style type="text/css">
-		*{
-			margin: 0 auto;
-			padding: 0;
-			box-sizing: border-box;
-			font-family: 'Radio Canada', sans-serif;
-			font-size: 18px;
-		}
-		#body{
-			color: #f2f2f2; /* ▉▉▉▉▉▉▉▉▉ */
-			background-color: #222222; /* ▉▉▉▉▉▉▉▉▉ */
-		}
-		#main_header{
-			background-color: #222222; /* ▉▉▉▉▉▉▉▉▉ */
-			position: fixed;
-			width: 100%;
-			z-index: 5;
-			padding: 20px 45px;
-			box-shadow: 0 0 4px 0 #00000060;
-		}
-		#main_header img{
-			width: 36px;
-			vertical-align: middle;
-		}
-		#main_header span{
-			cursor: pointer;
-			padding: 20px 0;
-			padding-left: 30px;
-		}
-		#main_header span:hover{
-			color: #0dd;
-		}
-		#main_header #lighting_mode{
-			float: right;
-			padding: 0 20px;
-			width: 60px;
-			font-size: 1.2em;
-		}
-		#intro{
-			text-align: center;
-			margin-bottom: 50px;
-		}
-		#intro h2{
-			font-size: 2.5em;
-			margin-bottom: 200px;
-		}
-		#intro h2 img {
-			vertical-align: middle;
-		}
-		#intro #text_play{
-			background-color: #000000b0;
-			display: inline-block;
-			border-radius: 5px;
-			margin: 25px 0;
-			padding: 10px;
-		}
-		#intro h2 span {
-			color: #f050f0;
-			font-size: inherit;
-		}
-		.section{
-			background-color: #303030;
-			width: 90%;
-			height: 300px;
-			margin: 100px auto;
-			border-radius: 5px;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="static/master.css">
 
 </head>
 
@@ -81,7 +14,6 @@
 
 	<h1 id="main_header">
 		<img src="imgs/logo.png" alt="logo image"/>
-		&nbsp; &nbsp; &nbsp;
 		<span>▪ Projects</span>
 		<span>▪ About</span>
 		<span>▪ Contact</span>
@@ -111,84 +43,7 @@
 
 	</div>
 
-
-
-
-	<script type="text/javascript">
-
-		// Change lighting mode ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-
-		(function setup_lighting_mode(){
-
-			if( localStorage.getItem('mode') ){
-				document.getElementById('lighting_mode').setAttribute('mode', localStorage.getItem('mode'));
-				change_lighting_mode();
-			}
-		})();
-
-		function change_lighting_mode(){
-
-			let mode = document.getElementById('lighting_mode');
-
-			if( mode.getAttribute('mode') == 'dark' ){
-				set_light_mode();
-				mode.setAttribute('mode', 'light');
-				mode.innerHTML = '☽';
-				localStorage.setItem('mode', 'dark');
-
-			}else{
-				set_dark_mode();
-				mode.setAttribute('mode', 'dark');
-				mode.innerHTML = '☀';
-				localStorage.setItem('mode', 'light');
-			}
-
-		}
-
-		function set_light_mode(){
-
-			document.getElementById('body').style.color = '#151515';
-			document.getElementById('body').style.backgroundColor = '#e2e2e2';
-			document.getElementById('main_header').style.backgroundColor = '#e2e2e2';
-
-			let section = document.getElementsByClassName('section');
-			for(let id=0; id<section.length; id++){
-				section[id].style.backgroundColor = '#f0f0f0';
-			}
-		}
-
-		function set_dark_mode(){
-
-			document.getElementById('body').style.color = '#f2f2f2';
-			document.getElementById('body').style.backgroundColor = '#222222';
-			document.getElementById('main_header').style.backgroundColor = '#222222';
-
-			let section = document.getElementsByClassName('section');
-			for(let id=0; id<section.length; id++){
-				section[id].style.backgroundColor = '#303030';
-			}
-		}
-
-		// ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-		function rand(min, max) {
-			return Math.floor(Math.random() * (max - min + 1) ) + min;
-		}
-
-		(function(){
-
-			let text_play = document.getElementById('text_play'),
-				count = 2022;
-
-			setInterval(()=>{
-				text_play.innerHTML = '▼ Download year ' + count++;
-				text_play.style.color = 'rgb('
-					+rand(50, 255)+','
-					+rand(50, 255)+','
-					+rand(50, 255)+')';
-			}, 60);
-		})();
-
-	</script>
+	<script src="static/master.js"></script>
 
 </body>
 </html>
