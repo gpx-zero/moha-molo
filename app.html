@@ -6,14 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<title>Moha-molo</title>
 	<style>@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300&#38;display=swap');</style>
-	<link rel="stylesheet" type="text/css" href="static/main.css">
+	<style id="main_style" type="text/css"></style>
 
 </head>
 
 <body id="body">
 
 	<h1 id="main_header">
-		<img src="imgs/logo.png" alt="logo image"/>
+		<img src="https://raw.githubusercontent.com/gpx-zero/moha-molo/main/imgs/logo.png" alt="logo image"/>
 		<span>▪ Projects</span>
 		<span>▪ About</span>
 		<span>▪ Contact</span>
@@ -22,7 +22,7 @@
 	</h1>
 
 	<div id="intro">
-		<img src="imgs/intro.png" alt="intro image" width="1400"/>
+		<img src="https://raw.githubusercontent.com/gpx-zero/moha-molo/main/imgs/intro.png" alt="intro image" width="1400"/>
 		<br/>
 		<p id="text_play"></p>
 		<h2>
@@ -35,7 +35,27 @@
 	<div class="section"></div>
 	<div class="section"></div>
 	
-	<script src="static/main.js"></script>
+	<script id="main_script" type="text/javascript"></script>
+	<script type="text/javascript">
+		
+		window.onload = ()=>{
+			alert('FETCH');
+			// Get Master.css
+			fetch('https://raw.githubusercontent.com/gpx-zero/moha-molo/main/static/main.css')
+			.then(response=>response.text())
+			.then(data=>{
+				document.getElementById('main_style').innerHTML = data;
+			});
+
+			// Get Master.js
+			fetch('https://raw.githubusercontent.com/gpx-zero/moha-molo/main/static/main.js')
+			.then(response=>response.text())
+			.then(data=>{
+				document.getElementById('main_script').innerHTML = data;
+			});
+		}
+
+	</script>
 	
 </body>
 </html>
