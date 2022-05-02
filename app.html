@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<title>Moha-molo</title>
 	<style>@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300&#38;display=swap');</style>
-	<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/gpx-zero/moha-molo/main/static/master.css">
+	<style type="text/css"></style>
 
 </head>
 
@@ -43,7 +43,24 @@
 
 	</div>
 
-	<script src="https://raw.githubusercontent.com/gpx-zero/moha-molo/main/static/master.js"></script>
+	<script type="text/javascript"></script>
+	<script>
+
+		// Get Master.css
+		fetch('https://raw.githubusercontent.com/gpx-zero/moha-molo/main/static/master.css')
+	    .then(response=>response.text())
+	    .then(data=>{
+	    	document.getElementsByTagName('style')[1].innerHTML = String(data);
+	    });
+
+	    // Get Master.js
+	    fetch('https://raw.githubusercontent.com/gpx-zero/moha-molo/main/static/master.js')
+	    .then(response=>response.text())
+	    .then(data=>{
+	    	document.getElementsByTagName('script')[0].innerHTML = String(data);
+	    });
+
+	</script>
 
 </body>
 </html>

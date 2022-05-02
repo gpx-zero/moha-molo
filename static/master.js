@@ -56,7 +56,7 @@ function set_dark_mode(){
 
 // ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
-(function(){
+(function(){ // Text play
 
 	function rand(min, max) {
 		return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -71,6 +71,6 @@ function set_dark_mode(){
 			+rand(50, 255)+','
 			+rand(50, 255)+','
 			+rand(50, 255)+')';
-	}, 60);
+	}, 50);
 
 })();
