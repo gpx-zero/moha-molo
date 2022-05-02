@@ -1,32 +1,146 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Moha molo</title>
+
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>Moha-molo</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300&display=swap');
+	</style>
 	<style type="text/css">
-    *{
-			color: #fff;
-      font-family: sans-serif;
+		*{
 			margin: 0 auto;
-			border-radius: 5px;
+			padding: 0;
+			box-sizing: border-box;
+			color: #f2f2f2;
+			font-family: 'Radio Canada', sans-serif;
+			font-size: 18px;
 		}
 		body{
-			background: #151515;
-			padding: 10px;
+			background: #222222;
+		}
+		h1{
+			background: #222222;
+			position: fixed;
+			width: 100%;
+			z-index: 5;
+			padding: 20px 45px;
+			box-shadow: 0 0 4px 0 #00000060;
+		}
+		h1 img{
+			width: 36px;
+			vertical-align: middle;
+		}
+		h1 span{
+			cursor: pointer;
+			padding: 20px 0;
+			padding-left: 30px;
+		}
+		h1 span:hover{
+			color: #0dd;
+		}
+		#intro{
 			text-align: center;
+			margin-bottom: 50px;
+		}
+		#intro h2{
+			font-size: 2.5em;
+			margin: 20px auto;
+		}
+		#intro h2 img {
+			vertical-align: baseline;
+		}
+		#intro h2 span {
+			color: #0d5;
+			font-size: inherit;
+		}
+		#main{
+			background: #262626;
+			display: flex;
+			max-width: 1400px;
+			padding: 8em 1em;
+		}
+		#main article{
+			background: #262626;
+			width: 65%;
+		}
+		#main article h2{
+			color: #0cc;
+			margin: 50px 0;
+			font-size: 1.5em;
+			line-height: 55px;
+		}
+		#main article h2 hr{
+			color: #0cc;
+		}
+		#main article p{
+			padding-left: 20px;
+		}
+		aside{
+			width: 25%;
+			padding: 15px;
+			border: solid 1px #353535;
+			border-radius: 10px;
 		}
 	</style>
-  
+
 </head>
 
 <body>
-  
-  <main></main>
-  
+
+	<h1>
+		<img src="imgs/logo.png" alt="moha mola logo">
+		&nbsp; &nbsp; &nbsp;
+		<span>▪ Projects</span>
+		<span>▪ About</span>
+		<span>▪ Contact</span>
+		<span>▪ Help</span>
+		<span style="float: right; padding: 0 20px;">☀☾</span>
+		<span style="float: right; padding: 0;">▪ Donate <img src="https://emoji.gg/assets/emoji/1721-sparkles.gif" width="20px" height="30px"> </span>
+	</h1>
+
+	<div id="intro">
+		<img src="imgs/intro.png" alt="moha molo intro" width="1400"/>
+		<h2>
+			<img src="https://emoji.gg/assets/emoji/6002-fastrainbowheart.gif" width="30px" height="30px">
+			Welcome to <span>Moha wb site</span>
+		</h2>
+	</div>
+
+	<div id="main">
+
+		<br/>
+
+		<article>
+			<h2>Intro<hr/></h2>
+			<p>Some text here ...</p>
+			<p>Some text here ...</p>
+
+			<h2>About<hr/></h2>
+			<p>Some text here ...</p>
+			<p>Some text here ...</p>
+
+			<h2>Contact<hr/></h2>
+			<p>Some text here ...</p>
+			<p>Some text here ...</p>
+
+			<h2>Help<hr/></h2>
+			<p>Some text here ...</p>
+			<p>Some text here ...</p>
+		</article>
+		<aside>
+			<p>Some text here ...</p>
+		</aside>
+
+
+	</div>
+
+
+
 	<script type="text/javascript">
-  </script>
+		
+	</script>
 
 </body>
 </html>
