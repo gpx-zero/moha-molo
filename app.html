@@ -13,7 +13,7 @@
 <body id="body">
 
 	<h1 id="main_header">
-		<img src="https://raw.githubusercontent.com/gpx-zero/moha-molo/main/imgs/logo.png" alt="logo image"/>
+		<img src="https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/imgs/logo.png" alt="logo image"/>
 		<span>▪ Projects</span>
 		<span>▪ About</span>
 		<span>▪ Contact</span>
@@ -22,7 +22,7 @@
 	</h1>
 
 	<div id="intro">
-		<img src="https://raw.githubusercontent.com/gpx-zero/moha-molo/main/imgs/intro.png" alt="intro image" width="1400"/>
+		<img src="https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/imgs/intro.png" alt="intro image" width="1400"/>
 		<br/>
 		<p id="text_play"></p>
 		<h2>
@@ -37,23 +37,20 @@
 	
 	<script id="main_script" type="text/javascript"></script>
 	<script type="text/javascript">
-		
-		window.onload = ()=>{
-			alert('FETCH');
-			// Get Master.css
-			fetch('https://raw.githubusercontent.com/gpx-zero/moha-molo/main/static/main.css')
-			.then(response=>response.text())
-			.then(data=>{
-				document.getElementById('main_style').innerHTML = data;
-			});
 
-			// Get Master.js
-			fetch('https://raw.githubusercontent.com/gpx-zero/moha-molo/main/static/main.js')
-			.then(response=>response.text())
-			.then(data=>{
-				document.getElementById('main_script').innerHTML = data;
-			});
-		}
+		// Get Master.css
+		fetch('https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/static/main.css')
+		.then(response=>response.text())
+		.then(data=>{
+			document.getElementById('main_style').innerHTML = data;
+		});
+
+		// Get Master.js
+		fetch('https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/static/main.js')
+		.then(response=>response.text())
+		.then(data=>{
+			document.getElementById('main_script').innerHTML = data;
+		});
 
 	</script>
 	
