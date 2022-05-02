@@ -7,24 +7,6 @@
 	<title>Moha-molo</title>
 	<style>@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300&#38;display=swap');</style>
 	<style id="main_style" type="text/css"></style>
-	<script type="text/javascript">
-
-		alert('FETCH');
-		// Get Master.css
-		fetch('https://raw.githubusercontent.com/gpx-zero/moha-molo/main/static/master.css')
-		.then(response=>response.text())
-		.then(data=>{
-			document.getElementById('main_style')[1].innerHTML = data;
-		});
-
-		// Get Master.js
-		fetch('https://raw.githubusercontent.com/gpx-zero/moha-molo/main/static/master.js')
-		.then(response=>response.text())
-		.then(data=>{
-			document.getElementById('main_script')[1].innerHTML = data;
-		});
-
-	</script>
 
 </head>
 
@@ -49,19 +31,31 @@
 		</h2>
 	</div>
 
-	<div class="section">
-
-	</div>
-
-	<div class="section">
-
-	</div>
-
-	<div class="section">
-
-	</div>
+	<div class="section"></div>
+	<div class="section"></div>
+	<div class="section"></div>
 	
 	<script id="main_script" type="text/javascript"></script>
+	<script type="text/javascript">
+		
+		window.onload = ()=>{
+			alert('FETCH');
+			// Get Master.css
+			fetch('https://raw.githubusercontent.com/gpx-zero/moha-molo/main/static/master.css')
+			.then(response=>response.text())
+			.then(data=>{
+				document.getElementById('main_style').innerHTML = data;
+			});
+
+			// Get Master.js
+			fetch('https://raw.githubusercontent.com/gpx-zero/moha-molo/main/static/master.js')
+			.then(response=>response.text())
+			.then(data=>{
+				document.getElementById('main_script').innerHTML = data;
+			});
+		}
+
+	</script>
 	
 </body>
 </html>
