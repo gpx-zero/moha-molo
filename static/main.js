@@ -2,7 +2,7 @@
 
 (function setup_lighting_mode(){
 
-	if( localStorage.getItem('mode') ){
+	if( !localStorage.getItem('mode') == 'light' ){
 		document.getElementById('lighting_mode').setAttribute('mode', localStorage.getItem('mode'));
 		change_lighting_mode();
 	}
@@ -33,6 +33,7 @@ function set_light_mode(){
 	document.getElementById('body').style.color = '#151515';
 	document.getElementById('body').style.backgroundColor = '#e2e2e2';
 	document.getElementById('main_header').style.backgroundColor = '#e2e2e2';
+	document.getElementById('footer_header').style.backgroundColor = '#e2e2e2';
 
 	let section = document.getElementsByClassName('section');
 	for(let id=0; id<section.length; id++){
@@ -46,6 +47,7 @@ function set_dark_mode(){
 	document.getElementById('body').style.color = '#f2f2f2';
 	document.getElementById('body').style.backgroundColor = '#222222';
 	document.getElementById('main_header').style.backgroundColor = '#222222';
+	document.getElementById('footer_header').style.backgroundColor = '#222222';
 
 	let section = document.getElementsByClassName('section');
 	for(let id=0; id<section.length; id++){
@@ -58,19 +60,13 @@ function set_dark_mode(){
 
 (function(){ // Text play
 
-	function rand(min, max) {
-		return Math.floor(Math.random() * (max - min + 1) ) + min;
-	}
-
 	let text_play = document.getElementById('text_play'),
+		color_list = ['#d00', '#0d0', '#00d', '#dd0', '#d0d', '#0dd', '#ddd'],
 		count = 2022;
 
 	setInterval(()=>{
 		text_play.innerHTML = '▼ Download year ' + count++;
-		text_play.style.color = 'rgb('
-			+rand(50, 255)+','
-			+rand(50, 255)+','
-			+rand(50, 255)+')';
+		text_play.style.color = color_list[count%7];
 	}, 50);
 
 })();

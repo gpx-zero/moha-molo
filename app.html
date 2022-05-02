@@ -6,23 +6,23 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<title>Moha-molo</title>
 	<style>@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300&#38;display=swap');</style>
-	<style id="main_style" type="text/css"></style>
+	<link rel="stylesheet" type="text/css" href="static/main.css">
 
 </head>
 
 <body id="body">
 
 	<h1 id="main_header">
-		<img src="https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/imgs/logo.png" alt="logo image"/>
-		<span>▪ Projects</span>
-		<span>▪ About</span>
-		<span>▪ Contact</span>
-		<span>▪ Help</span>
+		<img src="imgs/logo.png" alt="logo image"/>
+		<span>● Projects</span>
+		<span>● About</span>
+		<span>● Contact</span>
+		<span>● Help</span>
 		<span id="lighting_mode" mode="dark" onclick="change_lighting_mode()">☀</span>
 	</h1>
 
 	<div id="intro">
-		<img src="https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/imgs/intro.png" alt="intro image" width="1400"/>
+		<img src="imgs/intro.png" alt="intro image" width="1400"/>
 		<br/>
 		<p id="text_play"></p>
 		<h2>
@@ -31,30 +31,64 @@
 		</h2>
 	</div>
 
-	<div class="section"></div>
-	<div class="section"></div>
-	<div class="section"></div>
+	<div class="section">
+		<img class="moha" src="imgs/item_1.png" alt="image"/>
+		<div>
+			<h2>About Moha</h2>
+			<br/>
+			<p>
+				Game Development is the art of creating games and describes the design,
+				development and release of a game. 
+				It may involve concept generation, design, build, test and release. While you create a game,
+				it is important to think about the game mechanics, rewards, player engagement and level design...
+			</p>
+		</div>
+	</div>
+
+	<div class="section">
+		<div>
+			<h2>Moha future projects</h2>
+			<br/>
+			<p>
+				Game Development is the art of creating games and describes the design,
+				development and release of a game. 
+				It may involve concept generation, design, build, test and release. While you create a game,
+				it is important to think about the game mechanics, rewards, player engagement and level design...
+			</p>
+		</div>
+		<img class="moha" src="imgs/item_4.png" alt="image"/>
+	</div>
+
+	<div class="section">
+		<img class="moha" src="imgs/item_1.png" alt="image"/>
+		<div>
+			<h2>For Contact Moha</h2>
+			<br/>
+			<p>
+				Game Development is the art of creating games and describes the design,
+				development and release of a game. 
+				It may involve concept generation, design, build, test and release. While you create a game,
+				it is important to think about the game mechanics, rewards, player engagement and level design...
+				<br/><br/>
+				<img src="https://img.icons8.com/doodle/48/000000/youtube-play--v1.png" style="cursor: pointer; max-width: 100%; vertical-align: middle; font-size: 16px; height: auto !important;">
+				<img src="https://img.icons8.com/office/40/000000/facebook-new.png" style="cursor: pointer; max-width: 100%; vertical-align: middle; height: auto !important;">
+				<img src="https://img.icons8.com/offices/40/000000/instagram-new.png" style="cursor: pointer; max-width: 100%; vertical-align: middle; height: auto !important;">
+				<img src="https://img.icons8.com/color-glass/48/000000/twitter.png" style="cursor: pointer; max-width: 100%; vertical-align: middle; font-size: 16px; height: auto !important;">
+				<strong><img src="https://img.icons8.com/color/48/000000/discord-logo.png" style="cursor: pointer; max-width: 100%; height: auto !important; vertical-align: middle;">
+			</p>
+		</div>
+	</div>
+
+	<h1 id="footer_header">
+		<element>
+			@By Moha MOLA<br/>
+			@Last update in : 2022/05/02
+		</element>
+		<br/><br/>
+		<span>Donate</span>
+	</h1>
 	
-	<script id="main_script" type="text/javascript"> alert('Test !') </script>
-	<!--
-	<script type="text/javascript">
-
-		// Get Master.css
-		fetch('https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/static/main.css')
-		.then(response=>response.text())
-		.then(data=>{
-			document.getElementById('main_style').innerHTML = data;
-		});
-
-		// Get Master.js
-		fetch('https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/static/main.js')
-		.then(response=>response.text())
-		.then(data=>{
-			document.getElementById('main_script').innerHTML = data;
-		});
-
-	</script>
-	-->
+	<script src="static/main.js"></script>
 	
 </body>
 </html>
