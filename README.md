@@ -6,7 +6,7 @@
 >【 Mohamolo 】
 
 ###
-> 👋 Welcome to Mohamolo project! ★ Official Web Site for Moha-Molo ★ <br>
+> 👋 Welcome to Mohamolo project! ★ Official Web Site for Mohamolo ★ <br>
 > 😁 This Web Site is about 2d short game development ✔ <br>
 > ❤ Please don't forget to help us by sharing your thoughts✔ <br>
 ##
