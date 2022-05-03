@@ -66,12 +66,14 @@
 	border-radius: 5px;
 }
 .section .moha{
-	opacity: 0.1;
+	opacity: 0.2;
 	margin-left: 0;
 }
 .section div{
+	background-color: #00000020;
 	width: 50%;
-	padding: 1em 0;
+	padding: 1em;
+	border-radius: 10px;
 }
 .section h2{
 	font-size: 3em;
