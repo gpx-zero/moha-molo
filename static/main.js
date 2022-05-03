@@ -2,28 +2,31 @@
 
 (function setup_lighting_mode(){
 
-	if( !localStorage.getItem('mode') == 'light' ){
-		document.getElementById('lighting_mode').setAttribute('mode', localStorage.getItem('mode'));
-		change_lighting_mode();
-	}
+	if( localStorage.getItem('mode') == 'dark' ){
+		set_dark_mode();
+		document.getElementById('lighting_mode').innerHTML = '☀';
 
+	}else{
+		set_light_mode();
+		document.getElementById('lighting_mode').innerHTML = '☽';
+
+	}
 })();
 
 function change_lighting_mode(){
 
 	let mode = document.getElementById('lighting_mode');
 
-	if( mode.getAttribute('mode') == 'dark' ){
-		set_light_mode();
-		mode.setAttribute('mode', 'light');
-		mode.innerHTML = '☽';
+	if( mode.innerHTML ==  '☽'){
+		set_dark_mode();
+		mode.innerHTML = '☀';
 		localStorage.setItem('mode', 'dark');
 
 	}else{
-		set_dark_mode();
-		mode.setAttribute('mode', 'dark');
-		mode.innerHTML = '☀';
+		set_light_mode();
+		mode.innerHTML = '☽';
 		localStorage.setItem('mode', 'light');
+
 	}
 
 }
@@ -56,9 +59,9 @@ function set_dark_mode(){
 	
 }
 
-// ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+// Text play ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
-(function(){ // Text play
+(function(){
 
 	let text_play = document.getElementById('text_play'),
 		color_list = ['#d00', '#0d0', '#00d', '#dd0', '#d0d', '#0dd', '#ddd'],
@@ -70,3 +73,6 @@ function set_dark_mode(){
 	}, 50);
 
 })();
+
+// main ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+// ...
