@@ -138,7 +138,7 @@
 
 	<div class="section">
 		<img class="moha" src="https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/imgs/item_7.png" alt="image"/>
-		<div style="transform: skewY(3deg);">
+		<div style="transform: skewY(2deg);">
 			<h2>About Mohamolo</h2>
 			<br/>
 			<p>
@@ -199,28 +199,31 @@
 
 		(function setup_lighting_mode(){
 
-			if( !localStorage.getItem('mode') == 'light' ){
-				document.getElementById('lighting_mode').setAttribute('mode', localStorage.getItem('mode'));
-				change_lighting_mode();
-			}
+			if( localStorage.getItem('mode') == 'dark' ){
+				set_dark_mode();
+				document.getElementById('lighting_mode').innerHTML = '☀';
 
+			}else{
+				set_light_mode();
+				document.getElementById('lighting_mode').innerHTML = '☽';
+
+			}
 		})();
 
 		function change_lighting_mode(){
 
 			let mode = document.getElementById('lighting_mode');
 
-			if( mode.getAttribute('mode') == 'dark' ){
-				set_light_mode();
-				mode.setAttribute('mode', 'light');
-				mode.innerHTML = '☽';
+			if( mode.innerHTML ==  '☽'){
+				set_dark_mode();
+				mode.innerHTML = '☀';
 				localStorage.setItem('mode', 'dark');
 
 			}else{
-				set_dark_mode();
-				mode.setAttribute('mode', 'dark');
-				mode.innerHTML = '☀';
+				set_light_mode();
+				mode.innerHTML = '☽';
 				localStorage.setItem('mode', 'light');
+
 			}
 
 		}
@@ -267,6 +270,9 @@
 			}, 50);
 
 		})();
+
+		// main ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+		// ...
 
 	</script>
 	
