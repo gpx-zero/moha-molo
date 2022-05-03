@@ -1,12 +1,12 @@
 <div align="center">
-  <img src="imgs/logo.png" alt="ttk logo" width="150">
+  <img src="imgs/logo.png" alt="Mohamolo logo" width="150">
   <br><br><br>
 </div>
 
->【 Moha-Molo 】
+>【 Mohamolo 】
 
 ###
-> 👋 Welcome to Moha-Molo project! ★ Official Web Site for Moha-Molo ★ <br>
+> 👋 Welcome to Mohamolo project! ★ Official Web Site for Moha-Molo ★ <br>
 > 😁 This Web Site is about 2d short game development ✔ <br>
 > ❤ Please don't forget to help us by sharing your thoughts✔ <br>
 ##
