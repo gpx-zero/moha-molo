@@ -7,10 +7,6 @@
 	<title>Mohamolo</title>
 	<style>@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300');</style>
 	<style type="text/css">
-		::-webkit-scrollbar { width: 10px }
-		::-webkit-scrollbar-track { background: #2a2a2a }
-		::-webkit-scrollbar-thumb { background: #555 }
-		::-webkit-scrollbar-thumb:hover { background: #aaa }
 		html{ background-color: #000; }
 		#body{opacity: 0;}
 		.body_anime{ animation: body_animation 0.5s; }
@@ -26,27 +22,41 @@
 			position: fixed;
 			z-index: 5;
 			width: 100%;
-			padding: 15px 50px;
+			padding: 10px;
 			box-shadow: 0 0 4px 0 #00000060;
 		}
 		#main_header img{
 			width: 40px;
 			vertical-align: middle;
 		}
-		#main_header span{
-			cursor: pointer;
-			padding: 20px 0;
-			padding-left: 30px;
+		#main_header #mobile{ float: right; }
+		#main_header #main_list{
+			display: none;
+			background: #000000d0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 50vw;
+			height: 100vh;
+		}
+		#main_header #main_list div{
+			position: absolute;
+		}
+		#main_header #main_list span{
+			color: #fff;
+			margin: 20px;
+			display: inline-block;
 		}
 		#main_header span:hover{ color: #0dd; }
 		#main_header #lighting_mode{
-			float: right;
-			padding: 0;
-			font-size: 1.2em;
+			width: 40px;
+			display: inline;
+			padding-left: 20px;
 		}
 		#intro{
 			text-align: center;
-			margin-bottom: 150px;
+			margin-bottom: 100px;
+			overflow: hidden;
 		}
 		#intro #text_play{
 			background-color: #111;
@@ -56,31 +66,34 @@
 			border-radius: 5px;
 		}
 		#intro h2{
-			font-size: 2.5em;
+			font-size: 2em;
 		}
 		#intro h2 span {
 			color: #f050f0;
 			font-size: inherit;
 		}
 		#intro h2 img { vertical-align: middle; }
+
 		.section{
-			display: flex;
 			width: 96%;
-			padding: 200px 10px;
+			padding: 100px 10px;
 			border-radius: 5px;
+			overflow: hidden;
+			text-align: center;
 		}
-		.section .moha{ opacity: 0.3; }
+		.section .moha{ opacity: 0.3; width: 50vw; margin-top: 1em;}
 		.section div{
 			background-color: #5555ff15;
-			width: 50%;
+			width: 100%;
 			padding: 1em;
 			border-radius: 10px;
+			text-align: left;
 		}
 		.section h2{
-			font-size: 2.5em;
+			font-size: 2em;
 			font-weight: bold;
 		}
-		.section p{ font-size: 1.5em; }
+		.section p{ font-size: 1em; }
 		.section div p .contact_imgs{
 			cursor: pointer;
 			vertical-align: middle;
@@ -105,23 +118,29 @@
 
 <body id="body">
 
-	<!--Custom URL https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/-->
-
 	<a href="#main" id="main"></a>
 	<h1 id="main_header">
 
 		<img onclick="scroll_to('main')" src="https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/imgs/logo.png" alt="logo image"/>
-		<span onclick="scroll_to('about')">● About</span>
-		<span onclick="scroll_to('projects')">● Projects</span>
-		<span onclick="scroll_to('contact')">● Contact</span>
-		<span onclick="scroll_to('info')">● Info</span>
-		<span id="lighting_mode" onclick="change_lighting_mode()">☀</span>
+
+		<div id="lighting_mode" onclick="change_lighting_mode()">☀</div>
+		<div id="mobile" onclick="display_main_list()">
+			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAA6ElEQVRoge2WMQ7CMAxFv8sNmMNhEBtHQMy5U1ckTsDAxmXagZUL9DMgQp10QKpEAP23ubWd5+0DQgghxA9j42J9uG3NrAUYAAJgD2O87JfncV/YnbZGtIAF4NFZrDNfs3yuqDn133/qByzi9bhJPo1r9/KAMRBos62oI28gLBgG59P4ISf/HFvlB9SRTzif/AAnn+oJKskX8/kBfS5PsJuQ7yvKOx9/gDES6MbyDRnzAzA0EbDXok/KG0ofIYSohrKQstDb8gllIWWhWfLKQkKIr0JZSFnobfmEspCy0Cx5ZSEhhBD/xB2ua/w0gBzosQAAAABJRU5ErkJggg=="/>
+		</div>
+		<ul id="main_list">
+			<div>
+				<span onclick="scroll_to('about')">● About</span>
+				<span onclick="scroll_to('projects')">● Projects</span>
+				<span onclick="scroll_to('contact')">● Contact</span>
+				<span onclick="scroll_to('info')">● Info</span>
+			</div>
+		</ul>
 
 	</h1>
 
 	<div id="intro">
 
-		<img src="https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/imgs/intro.png" alt="intro image" width="1500"/>
+		<img src="https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/imgs/intro.png" alt="intro image" width="1500" height="350px" />
 		<br/>
 		<p id="text_play"></p>
 		<h2>
@@ -135,10 +154,10 @@
 	<div class="section">
 		<hr/>
 		<img class="moha" src="https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/imgs/item_7.png" alt="mohamolo image"/>
-
+		<br/>
 		<div style="transform: rotateZ(1deg);">
 			<h2>About Mohamolo</h2>
-			<br/>
+
 			<p>
 				Game Development is the art of creating games and describes the design,
 				development and release of a game. 
@@ -217,17 +236,32 @@
 				it is important to think about the game mechanics, rewards, player engagement and level design...
 			</p>
 			<br/>
-			<section id="donate"> To help Mohamolo please <span>Donate</span> </section>
+			<section id="donate"> To help Mohamolo please <br/><br/> <span>Donate</span> </section>
 
 		</div>
+
 		<img class="moha" src="https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/imgs/robot.png" alt="mohamolo image"/>
 		
 	</div>
 	
-	<hr style="border-color:#00000050;margin-top: 150px;"/>
+	<hr style="border-color:#00000050;margin-top: 100px;"/>
 	<p style="font-size: 10px;padding: 15px;"> ▎By Mohamolo Last update in 2022/05/03 </p>
-	
+
 	<script type="text/javascript">
+
+		var GRID = false;
+
+		// Display main list ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+		function display_main_list(){
+			if (GRID){
+				document.getElementById('main_list').style.display = 'none';
+				GRID = false;
+			}else{
+				document.getElementById('main_list').style.display = 'grid';
+				GRID = true;
+			}
+		}
 
 		// Change lighting mode ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
@@ -306,6 +340,7 @@
 			document.getElementById("body").classList.add('body_anime');
 			setTimeout(()=>{document.getElementById("body").classList.remove('body_anime')}, 500);
 			document.getElementById(place).click();
+			display_main_list();
 
 		}
 
@@ -322,6 +357,6 @@
 		}
 
 	</script>
-	
+
 </body>
 </html>
