@@ -5,29 +5,32 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<title>Mohamolo</title>
-	<style>@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300&#38;display=swap');</style>
+	<style>@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300');</style>
 	<style type="text/css">
+		::-webkit-scrollbar { width: 10px }
+		::-webkit-scrollbar-track { background: #2a2a2a }
+		::-webkit-scrollbar-thumb { background: #555 }
+		::-webkit-scrollbar-thumb:hover { background: #aaa }
+		html{ background-color: #000; }
+		#body{opacity: 0;}
+		.body_anime{ animation: body_animation 0.5s; }
+		@keyframes body_animation{ 0%{opacity: 0} 100%{opacity: 1} }
 		*{
 			margin: 0 auto;
 			padding: 0;
-			box-sizing: border-box;
 			font-family: 'Radio Canada', sans-serif;
 			font-size: 18px;
-		}
-		#body{
-			color: #f2f2f2;
-			background-color: #222222;
+			box-sizing: border-box;
 		}
 		#main_header{
-			background-color: #222222;
 			position: fixed;
-			width: 100%;
 			z-index: 5;
-			padding: 20px 45px;
+			width: 100%;
+			padding: 15px 50px;
 			box-shadow: 0 0 4px 0 #00000060;
 		}
 		#main_header img{
-			width: 36px;
+			width: 40px;
 			vertical-align: middle;
 		}
 		#main_header span{
@@ -35,80 +38,67 @@
 			padding: 20px 0;
 			padding-left: 30px;
 		}
-		#main_header span:hover{
-			color: #0dd;
-		}
+		#main_header span:hover{ color: #0dd; }
 		#main_header #lighting_mode{
 			float: right;
-			padding: 0 20px;
-			width: 60px;
+			padding: 0;
 			font-size: 1.2em;
 		}
 		#intro{
 			text-align: center;
-			margin-bottom: 50px;
+			margin-bottom: 150px;
+		}
+		#intro #text_play{
+			background-color: #111;
+			display: inline-block;
+			margin: 30px 0;
+			padding: 10px;
+			border-radius: 5px;
 		}
 		#intro h2{
 			font-size: 2.5em;
-			margin-bottom: 200px;
-		}
-		#intro h2 img {
-			vertical-align: middle;
-		}
-		#intro #text_play{
-			background-color: #000000b0;
-			display: inline-block;
-			border-radius: 5px;
-			margin: 25px 0;
-			padding: 10px;
 		}
 		#intro h2 span {
 			color: #f050f0;
 			font-size: inherit;
 		}
+		#intro h2 img { vertical-align: middle; }
 		.section{
-			background-color: #303030;
 			display: flex;
-			width: 90%;
-			margin: 50px auto;
-			padding: 150px 10px;
+			width: 96%;
+			padding: 200px 10px;
 			border-radius: 5px;
 		}
-		.section .moha{
-			opacity: 0.2;
-			margin-left: 0;
-		}
+		.section .moha{ opacity: 0.3; }
 		.section div{
-			background-color: #00000020;
+			background-color: #5555ff15;
 			width: 50%;
 			padding: 1em;
 			border-radius: 10px;
 		}
 		.section h2{
-			font-size: 3em;
+			font-size: 2.5em;
 			font-weight: bold;
 		}
-		.section p{
-			font-size: 1.5em;
+		.section p{ font-size: 1.5em; }
+		.section div p .contact_imgs{
+			cursor: pointer;
+			vertical-align: middle;
+			opacity: 0.6;
 		}
-		#footer_header{
-			background-color: #222222;
-			width: 100%;
-			margin-top: 200px;
-			padding: 30px 50px;
-			font-size: 0.6em;
-			box-shadow: 0 0 4px 0 #00000060;
+		.section div p .contact_imgs:hover{ opacity: 1; }
+		#donate{
+			background-color: #5555ff20;
+			padding: 20px;
 		}
-		#footer_header element{
-			font-size: 1em;
-		}
-		#footer_header span{
-			background-color: #30b030;
+		#donate span{
+			background-color: #55ff55a0;
 			cursor: pointer;
 			padding: 5px;
-			font-size: 1.6em;
 			font-weight: bold;
 		}
+		#donate span:hover{ background-color: #55ff55d0; }
+
 	</style>
 
 </head>
@@ -117,28 +107,35 @@
 
 	<!--Custom URL https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/-->
 
+	<a href="#main" id="main"></a>
 	<h1 id="main_header">
-		<img src="https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/imgs/logo.png" alt="logo image"/>
-		<span>● Projects</span>
-		<span>● About</span>
-		<span>● Contact</span>
-		<span>● Help</span>
-		<span id="lighting_mode" mode="dark" onclick="change_lighting_mode()">☀</span>
+
+		<img onclick="scroll_to('main')" src="https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/imgs/logo.png" alt="logo image"/>
+		<span onclick="scroll_to('about')">● About</span>
+		<span onclick="scroll_to('projects')">● Projects</span>
+		<span onclick="scroll_to('contact')">● Contact</span>
+		<span onclick="scroll_to('info')">● Info</span>
+		<span id="lighting_mode" onclick="change_lighting_mode()">☀</span>
+
 	</h1>
 
 	<div id="intro">
-		<img src="https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/imgs/intro.png" alt="intro image" width="1400"/>
-		<br/>
+
+		<img src="https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/imgs/intro.png" alt="intro image" width="1500"/>
 		<p id="text_play"></p>
 		<h2>
 			Welcome to <span>MOHAMOLA</span>
-			<img src="https://emoji.gg/assets/emoji/1721-sparkles.gif" width="40px"/>
+			<img src="https://emoji.gg/assets/emoji/1721-sparkles.gif" width="50"/>
 		</h2>
+
 	</div>
 
+	<a href="#about" id="about"></a>
 	<div class="section">
-		<img class="moha" src="https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/imgs/item_7.png" alt="image"/>
-		<div style="transform: skewY(2deg);">
+		
+		<img class="moha" src="https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/imgs/item_7.png" alt="mohamolo image"/>
+
+		<div style="transform: rotateZ(1deg);">
 			<h2>About Mohamolo</h2>
 			<br/>
 			<p>
@@ -148,10 +145,13 @@
 				it is important to think about the game mechanics, rewards, player engagement and level design...
 			</p>
 		</div>
+
 	</div>
 
-	<div class="section" >
-		<div style="transform: rotateZ(-2deg)">
+	<a href="#projects" id="projects"></a>
+	<div class="section">
+
+		<div style="transform: rotateZ(-1deg)">
 			<h2>Mohamolo future projects</h2>
 			<br/>
 			<p>
@@ -161,12 +161,17 @@
 				it is important to think about the game mechanics, rewards, player engagement and level design...
 			</p>
 		</div>
-		<img class="moha" src="https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/imgs/item_4_rotated.png" alt="image"/>
+
+		<img class="moha" src="https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/imgs/item_4_rotated.png" alt="mohamolo image"/>
+
 	</div>
 
+	<a href="#contact" id="contact"></a>
 	<div class="section">
-		<img class="moha" src="https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/imgs/item_8.png" alt="image"/>
-		<div>
+		
+		<img class="moha" src="https://raw.githubusercontent.com/gpx-zero/moha-molo/blogger/imgs/item_8.png" alt="mohamolo image"/>
+
+		<div style="transform: rotateZ(1deg);">
 			<h2>For Contact Mohamolo</h2>
 			<br/>
 			<p>
@@ -175,29 +180,44 @@
 				It may involve concept generation, design, build, test and release. While you create a game,
 				it is important to think about the game mechanics, rewards, player engagement and level design...
 				<br/><br/>
-				<img src="https://img.icons8.com/doodle/48/000000/youtube-play--v1.png" style="cursor: pointer; max-width: 100%; vertical-align: middle; font-size: 16px; height: auto !important;">
-				<img src="https://img.icons8.com/office/40/000000/facebook-new.png" style="cursor: pointer; max-width: 100%; vertical-align: middle; height: auto !important;">
-				<img src="https://img.icons8.com/offices/40/000000/instagram-new.png" style="cursor: pointer; max-width: 100%; vertical-align: middle; height: auto !important;">
-				<img src="https://img.icons8.com/color-glass/48/000000/twitter.png" style="cursor: pointer; max-width: 100%; vertical-align: middle; font-size: 16px; height: auto !important;">
-				<strong><img src="https://img.icons8.com/color/48/000000/discord-logo.png" style="cursor: pointer; max-width: 100%; height: auto !important; vertical-align: middle;">
+				<img src="https://img.icons8.com/doodle/48/000000/youtube-play--v1.png" class="contact_imgs">
+				<img src="https://img.icons8.com/office/40/000000/facebook-new.png" class="contact_imgs">
+				<img src="https://img.icons8.com/offices/40/000000/instagram-new.png" class="contact_imgs">
+				<img src="https://img.icons8.com/color-glass/48/000000/twitter.png" class="contact_imgs">
+				<img src="https://img.icons8.com/color/48/000000/discord-logo.png" class="contact_imgs">
 			</p>
 		</div>
+		
 	</div>
+	
+	<a href="#info" id="info"></a>
+	<div class="section">
+		
+		<div>
 
-	<h1 id="footer_header">
-		<element>
-			@By Mohamolo<br/>
-			@Last update in : 2022/05/03
-		</element>
-		<br/><br/>
-		<span>Donate</span>
-	</h1>
+			<h2>Info</h2>
+			<br/>
+			<p>
+				Game Development is the art of creating games and describes the design,
+				development and release of a game. 
+				It may involve concept generation, design, build, test and release. While you create a game,
+				it is important to think about the game mechanics, rewards, player engagement and level design...
+			</p>
+			<br/>
+			<section id="donate"> To help Mohamolo please <span>Donate</span> </section>
+
+		</div>
+		
+	</div>
+	
+	<hr style="border-color:#00000050;margin-top: 150px;"/>
+	<p style="font-size: 10px;padding: 15px;"> ▎By Mohamolo Last update in 2022/05/03 </p>
 	
 	<script type="text/javascript">
 
 		// Change lighting mode ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
-		(function setup_lighting_mode(){
+		function setup_lighting_mode(){
 
 			if( localStorage.getItem('mode') == 'dark' ){
 				set_dark_mode();
@@ -208,7 +228,7 @@
 				document.getElementById('lighting_mode').innerHTML = '☽';
 
 			}
-		})();
+		};
 
 		function change_lighting_mode(){
 
@@ -230,35 +250,29 @@
 
 		function set_light_mode(){
 
-			document.getElementById('body').style.color = '#151515';
-			document.getElementById('body').style.backgroundColor = '#e2e2e2';
 			document.getElementById('main_header').style.backgroundColor = '#e2e2e2';
-			document.getElementById('footer_header').style.backgroundColor = '#e2e2e2';
+			document.getElementById('body').style.backgroundColor = '#e2e2e2';
+			document.getElementById('body').style.color = '#151515';
 
 			let section = document.getElementsByClassName('section');
-			for(let id=0; id<section.length; id++){
-				section[id].style.backgroundColor = '#f0f0f0';
-			}
+			for(let id=0; id<section.length; id++){ section[id].style.backgroundColor = '#f0f0f0'; }
 
 		}
 
 		function set_dark_mode(){
 
-			document.getElementById('body').style.color = '#f2f2f2';
-			document.getElementById('body').style.backgroundColor = '#222222';
 			document.getElementById('main_header').style.backgroundColor = '#222222';
-			document.getElementById('footer_header').style.backgroundColor = '#222222';
+			document.getElementById('body').style.backgroundColor = '#222222';
+			document.getElementById('body').style.color = '#fff';
 
 			let section = document.getElementsByClassName('section');
-			for(let id=0; id<section.length; id++){
-				section[id].style.backgroundColor = '#303030';
-			}
+			for(let id=0; id<section.length; id++){ section[id].style.backgroundColor = '#2a2a2a'; }
 			
 		}
 
 		// Text play ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
-		(function(){
+		function play_text(){
 
 			let text_play = document.getElementById('text_play'),
 				color_list = ['#d00', '#0d0', '#00d', '#dd0', '#d0d', '#0dd', '#ddd'],
@@ -269,10 +283,29 @@
 				text_play.style.color = color_list[count%7];
 			}, 50);
 
-		})();
+		};
+		
+		// Scroll into place ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+		function scroll_to(place){
+			
+			document.getElementById("body").classList.add('body_anime');
+			setTimeout(()=>{document.getElementById("body").classList.remove('body_anime')}, 500);
+			document.getElementById(place).click();
+
+		}
 
 		// main ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-		// ...
+
+		window.onload = ()=>{
+
+			setup_lighting_mode();
+			play_text();
+			document.getElementById("body").style.opacity = "1";
+			document.getElementById("body").classList.add('body_anime');
+			setTimeout(()=>{document.getElementById("body").classList.remove('body_anime')}, 500);
+			
+		}
 
 	</script>
 	
