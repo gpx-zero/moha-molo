@@ -12,7 +12,7 @@
 		::-webkit-scrollbar-thumb { background: #555 }
 		::-webkit-scrollbar-thumb:hover { background: #aaa }
 		html{ background-color: #000; }
-		#body{opacity: 0;}
+		#body{ opacity: 0; }
 		.body_anime{ animation: body_animation 0.5s; }
 		@keyframes body_animation{ 0%{opacity: 0} 100%{opacity: 1} }
 		*{
@@ -62,7 +62,7 @@
 			color: #f050f0;
 			font-size: inherit;
 		}
-		#intro h2 img { vertical-align: middle; }
+		#intro h2 img { overflow: hidden; }
 		.section{
 			display: flex;
 			width: 96%;
@@ -71,7 +71,7 @@
 		}
 		.section .moha{ opacity: 0.3; }
 		.section div{
-			background-color: #5555ff15;
+			background: linear-gradient(#5555ff40, #5555ff10);
 			width: 50%;
 			padding: 1em;
 			border-radius: 10px;

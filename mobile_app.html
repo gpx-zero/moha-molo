@@ -31,7 +31,6 @@
 		}
 		#main_header #mobile{ float: right; }
 		#main_header #main_list{
-			display: none;
 			background: #000000d0;
 			position: absolute;
 			top: 0;
@@ -39,11 +38,15 @@
 			width: 50vw;
 			height: 100vh;
 		}
+		.main_list_anime{ animation: Main_list_anime 1s; }
+		.main_list_anime_v{ animation: Main_list_anime_v 0.2s; }
+		@keyframes Main_list_anime{ 0%{width: 0vw; opacity: 0;} 50%{opacity: 0.2;} 100%{width: 50vw; opacity: 1;} }
+		@keyframes Main_list_anime_v{ 0%{width: 50vw; opacity: 1;} 50%{opacity: 0;} 100%{width: 0vw; opacity: 0;} }
 		#main_header #main_list div{
 			position: absolute;
 		}
 		#main_header #main_list span{
-			color: #fff;
+			color: #aaa;
 			margin: 20px;
 			display: inline-block;
 		}
@@ -83,7 +86,7 @@
 		}
 		.section .moha{ opacity: 0.3; width: 50vw; margin-top: 1em;}
 		.section div{
-			background-color: #5555ff15;
+			background: linear-gradient(#5555ff40, #5555ff10);
 			width: 100%;
 			padding: 1em;
 			border-radius: 10px;
@@ -127,7 +130,7 @@
 		<div id="mobile" onclick="display_main_list()">
 			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAA6ElEQVRoge2WMQ7CMAxFv8sNmMNhEBtHQMy5U1ckTsDAxmXagZUL9DMgQp10QKpEAP23ubWd5+0DQgghxA9j42J9uG3NrAUYAAJgD2O87JfncV/YnbZGtIAF4NFZrDNfs3yuqDn133/qByzi9bhJPo1r9/KAMRBos62oI28gLBgG59P4ISf/HFvlB9SRTzif/AAnn+oJKskX8/kBfS5PsJuQ7yvKOx9/gDES6MbyDRnzAzA0EbDXok/KG0ofIYSohrKQstDb8gllIWWhWfLKQkKIr0JZSFnobfmEspCy0Cx5ZSEhhBD/xB2ua/w0gBzosQAAAABJRU5ErkJggg=="/>
 		</div>
-		<ul id="main_list">
+		<ul id="main_list" style="display: none;">
 			<div>
 				<span onclick="scroll_to('about')">● About</span>
 				<span onclick="scroll_to('projects')">● Projects</span>
@@ -242,18 +245,42 @@
 
 	<script type="text/javascript">
 
-		var GRID = false;
+		var GRID = false, Click = true;
 
 		// Display main list ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
 		function display_main_list(){
-			if (GRID){
-				document.getElementById('main_list').style.display = 'none';
-				GRID = false;
-			}else{
-				document.getElementById('main_list').style.display = 'grid';
-				GRID = true;
+
+			let main_list = document.getElementById('main_list');
+
+			if(Click){
+
+				if (GRID){
+					Click = false;
+					main_list.classList.add('main_list_anime_v');
+					setTimeout(()=>{
+						main_list.classList.remove('main_list_anime_v');
+						main_list.style.display = 'none';
+						main_list.style.width = '0vw';
+						Click = true;
+					}, 100);
+					GRID = false;
+
+				}else{
+					Click = false;
+					main_list.style.display = 'grid';
+					main_list.classList.add('main_list_anime');
+					setTimeout(()=>{
+						main_list.classList.remove('main_list_anime');
+						main_list.style.width = '50vw';
+						Click = true;
+					}, 900);
+					GRID = true;
+
+				}
+
 			}
+
 		}
 
 		// Change lighting mode ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
