@@ -136,6 +136,7 @@
 				<span onclick="scroll_to('projects')">● Projects</span>
 				<span onclick="scroll_to('contact')">● Contact</span>
 				<span onclick="scroll_to('info')">● Info</span>
+                                <span onclick="change_language()" id="language">● Language | En</span>
 			</div>
 		</ul>
 
@@ -366,6 +367,14 @@
 			setTimeout(()=>{document.getElementById("body").classList.remove('body_anime')}, 500);
 			
 		}
+                function change_language(){
+                  let lang = document.getElementById("language");
+                  if(lang.innerHTML == "● Language | En"){
+                    lang.innerHTML = "● Language | Ar";
+                  }else{
+                    lang.innerHTML = "● Language | En";
+                  }
+                }
 
 	</script>
 
